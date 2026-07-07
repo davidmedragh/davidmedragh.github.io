@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>David MEDRAGH — Ingénieur IA full-stack · MLOps, LLM & assurance crédit</title>
+  <title>David MEDRAGH — Ingénieur IA full-stack · MLOps, LLM &amp; assurance crédit</title>
   <meta name="description" content="Portfolio de David MEDRAGH, ingénieur IA full-stack : ML, RAG, agents, fine-tuning LLM, MLOps, APIs, monitoring et cycle de vie SI.">
   <style>
 :root{
@@ -17,13 +17,22 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-s
   color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px}
 .container{max-width:1080px;margin:0 auto;padding:0 22px}
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[hidden]{display:none !important}
 .skip{position:absolute;left:-9999px;top:0;background:var(--gold);color:var(--navy);
   padding:10px 16px;font-weight:700;z-index:99}
 .skip:focus{left:12px;top:12px}
 h1,h2,h3{line-height:1.2;margin:0 0 .5em}
 h2{font-size:1.7rem;margin-top:0}
 a{color:#1d4ed8}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+a:focus-visible,.btn:focus-visible,.lang-btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.langbar{background:#0a141f;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.langbar-inner{display:flex;justify-content:flex-end;gap:8px}
+.lang-btn{background:transparent;border:1px solid rgba(255,255,255,.28);color:#cdd9e8;
+  border-radius:6px;padding:4px 11px;font-size:.82rem;font-weight:700;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;line-height:1.4}
+.lang-btn:hover{border-color:var(--gold);color:var(--gold)}
+.lang-btn[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--navy)}
 
 .hero{background:linear-gradient(150deg,var(--navy) 0%,#16304f 70%,#1b3a5c 100%);
   color:#eef3f9;padding:72px 0 56px;border-bottom:4px solid var(--gold)}
@@ -110,7 +119,6 @@ tbody th{font-weight:600}
 footer{background:var(--navy);color:#cdd9e8;border-top:4px solid var(--gold)}
 footer h2{color:#fff}
 footer a{color:var(--gold)}
-.footer-note{font-size:.9rem;color:#9fb2c8}
 .footer-copy{font-size:.82rem;color:#7a8ea6;margin-top:18px}
 
 @media (max-width:640px){
@@ -121,22 +129,29 @@ footer a{color:var(--gold)}
 </style>
 </head>
 <body>
-<a class="skip" href="#projet-phare">Aller au contenu</a>
 
-<header class="hero" id="haut">
+<div class="langbar">
+  <div class="container langbar-inner">
+    <button type="button" id="lang-fr-btn" class="lang-btn" aria-pressed="true" onclick="setSiteLang('fr')">
+      <span aria-hidden="true">🇫🇷</span> FR
+    </button>
+    <button type="button" id="lang-en-btn" class="lang-btn" aria-pressed="false" onclick="setSiteLang('en')">
+      <span aria-hidden="true">🇬🇧</span> EN
+    </button>
+  </div>
+</div>
+
+<div id="content-fr" class="lang-block">
+<a class="skip" href="#projet-phare-fr">Aller au contenu</a>
+
+<header class="hero" id="haut-fr">
   <div class="container">
     <p class="hero-kicker">Ingénieur IA full-stack &middot; Senior Developer</p>
     <h1>David MEDRAGH</h1>
-    <p class="hero-pitch">
-      Ingénieur logiciel senior et <strong>ingénieur IA full-stack</strong>,
-      j'interviens sur tout le cycle de vie du système d'information : cadrage,
-      data engineering, modèles ML/LLM, APIs, <strong>MLOps</strong>, CI/CD,
-      monitoring et amélioration continue, avec un ancrage métier en
-      <strong>assurance crédit</strong>.
-    </p>
+    <p class="hero-pitch">Ingénieur logiciel senior et <strong>ingénieur IA full-stack</strong>, j'interviens sur tout le cycle de vie du système d'information : cadrage, data engineering, modèles ML/LLM, APIs, <strong>MLOps</strong>, CI/CD, monitoring et amélioration continue, avec un ancrage métier en <strong>assurance crédit</strong>.</p>
     <nav class="hero-links" aria-label="Liens principaux">
-      <a class="btn btn-primary" href="#projet-phare">Voir le projet phare</a>
-      <a class="btn" href="carte-conceptuelle.html">Carte conceptuelle</a>
+      <a class="btn btn-primary" href="#projet-phare-fr">Voir le projet phare</a>
+      <a class="btn" href="carte-conceptuelle.html">Carte de compétences</a>
       <a class="btn" href="https://www.linkedin.com/in/david-medragh-a339b615/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a class="btn" href="https://github.com/davidmedragh" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a class="btn" href="mailto:david.medragh@gmail.com">Me contacter</a>
@@ -145,19 +160,14 @@ footer a{color:var(--gold)}
 </header>
 
 <nav class="topnav" aria-label="Navigation du portfolio">
-  <div class="container"><a href="#projet-phare">Projet phare</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#marche">Marché</a><a href="#experience">Expérience</a><a href="#reflexion">Recul</a><a href="#contact">Contact</a></div>
+  <div class="container"><a href="#projet-phare-fr">Projet phare</a><a href="#projets-fr">Projets</a><a href="#competences-fr">Compétences</a><a href="#marche-fr">Marché</a><a href="#experience-fr">Expérience</a><a href="#reflexion-fr">Recul</a><a href="#contact-fr">Contact</a></div>
 </nav>
 <main>
 
-<section class="live" id="projet-phare" aria-labelledby="titre-phare">
+<section class="live" id="projet-phare-fr" aria-labelledby="titre-phare-fr">
   <div class="container">
-    <h2 id="titre-phare">Projet phare — Fermer la boucle MLOps <span class="live-pill">systèmes en ligne</span></h2>
-    <p>
-      Mon projet personnel technique : quand la dérive des données d'un scoring crédit est détectée,
-      le modèle est <strong>réentraîné, validé et promu en production automatiquement</strong>.
-      Data drift (Evidently, quotidien) et model drift (River, hebdomadaire) déclenchent tous deux
-      le réentraînement ; une gate AUC protège la production. Tout est visitable, en vrai :
-    </p>
+    <h2 id="titre-phare-fr">Projet phare — Fermer la boucle MLOps <span class="live-pill">systèmes en ligne</span></h2>
+    <p>Mon projet personnel technique : quand la dérive des données d'un scoring crédit est détectée, le modèle est <strong>réentraîné, validé et promu en production automatiquement</strong>. Data drift (Evidently, quotidien) et model drift (River, hebdomadaire) déclenchent tous deux le réentraînement ; une gate AUC protège la production. Tout est visitable, en vrai :</p>
     <div class="demo-grid">
     <a class="demo-card" href="https://davidaz-trade-projet15.hf.space" target="_blank" rel="noopener noreferrer">
       <span class="demo-dot" aria-hidden="true"></span>
@@ -180,9 +190,9 @@ footer a{color:var(--gold)}
   </div>
 </section>
 
-<section id="projets" aria-labelledby="titre-projets">
+<section id="projets-fr" aria-labelledby="titre-projets-fr">
   <div class="container">
-    <h2 id="titre-projets">15 projets, du ML supervisé aux LLM</h2>
+    <h2 id="titre-projets-fr">15 projets, du ML supervisé aux LLM</h2>
     <p class="section-intro">Chaque projet est documenté, testé et versionné — le code fait foi.</p>
     <div class="grid">
     <article class="card">
@@ -272,9 +282,9 @@ footer a{color:var(--gold)}
   </div>
 </section>
 
-<section id="competences" aria-labelledby="titre-competences">
+<section id="competences-fr" aria-labelledby="titre-competences-fr">
   <div class="container">
-    <h2 id="titre-competences">Compétences</h2>
+    <h2 id="titre-competences-fr">Compétences</h2>
     <div class="skills-grid">
     <div class="skill-group">
       <h3>📊 ML classique &amp; data science</h3>
@@ -284,7 +294,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Python scientifique et environnement</span>
           <span class="skill-level">Expert</span>
         </div>
-        <div class="bar" role="img" aria-label="Python scientifique et environnement : niveau 5 sur 5">
+        <div class="bar" role="img" aria-label="Python scientifique et environnement : 5/5">
           <div class="bar-fill" style="width:100%"></div>
         </div>
       </div>
@@ -293,7 +303,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Préparation et analyse de données</span>
           <span class="skill-level">Expert</span>
         </div>
-        <div class="bar" role="img" aria-label="Préparation et analyse de données : niveau 5 sur 5">
+        <div class="bar" role="img" aria-label="Préparation et analyse de données : 5/5">
           <div class="bar-fill" style="width:100%"></div>
         </div>
       </div>
@@ -302,7 +312,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Machine Learning supervisé</span>
           <span class="skill-level">Expert</span>
         </div>
-        <div class="bar" role="img" aria-label="Machine Learning supervisé : niveau 5 sur 5">
+        <div class="bar" role="img" aria-label="Machine Learning supervisé : 5/5">
           <div class="bar-fill" style="width:100%"></div>
         </div>
       </div>
@@ -311,7 +321,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Modélisation métier et scoring</span>
           <span class="skill-level">Expert</span>
         </div>
-        <div class="bar" role="img" aria-label="Modélisation métier et scoring : niveau 5 sur 5">
+        <div class="bar" role="img" aria-label="Modélisation métier et scoring : 5/5">
           <div class="bar-fill" style="width:100%"></div>
         </div>
       </div>
@@ -320,7 +330,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Évaluation et interprétabilité ML</span>
           <span class="skill-level">Expert</span>
         </div>
-        <div class="bar" role="img" aria-label="Évaluation et interprétabilité ML : niveau 5 sur 5">
+        <div class="bar" role="img" aria-label="Évaluation et interprétabilité ML : 5/5">
           <div class="bar-fill" style="width:100%"></div>
         </div>
       </div>
@@ -329,7 +339,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Deep Learning et vision</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="Deep Learning et vision : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="Deep Learning et vision : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -342,7 +352,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">NLP, embeddings et RAG</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="NLP, embeddings et RAG : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="NLP, embeddings et RAG : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -351,7 +361,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Agents IA et orchestration LLM</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="Agents IA et orchestration LLM : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="Agents IA et orchestration LLM : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -360,7 +370,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">LLM fine-tuning et alignement</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="LLM fine-tuning et alignement : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="LLM fine-tuning et alignement : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -369,7 +379,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Serving LLM et inférence</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="Serving LLM et inférence : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="Serving LLM et inférence : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -382,7 +392,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">MLOps tracking et registry</span>
           <span class="skill-level">Expert</span>
         </div>
-        <div class="bar" role="img" aria-label="MLOps tracking et registry : niveau 5 sur 5">
+        <div class="bar" role="img" aria-label="MLOps tracking et registry : 5/5">
           <div class="bar-fill" style="width:100%"></div>
         </div>
       </div>
@@ -391,7 +401,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Monitoring, drift et observabilité</span>
           <span class="skill-level">Expert</span>
         </div>
-        <div class="bar" role="img" aria-label="Monitoring, drift et observabilité : niveau 5 sur 5">
+        <div class="bar" role="img" aria-label="Monitoring, drift et observabilité : 5/5">
           <div class="bar-fill" style="width:100%"></div>
         </div>
       </div>
@@ -400,7 +410,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">CI/CD, tests et qualité logicielle</span>
           <span class="skill-level">Expert</span>
         </div>
-        <div class="bar" role="img" aria-label="CI/CD, tests et qualité logicielle : niveau 5 sur 5">
+        <div class="bar" role="img" aria-label="CI/CD, tests et qualité logicielle : 5/5">
           <div class="bar-fill" style="width:100%"></div>
         </div>
       </div>
@@ -409,7 +419,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Backend API et contrats applicatifs</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="Backend API et contrats applicatifs : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="Backend API et contrats applicatifs : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -418,7 +428,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Data engineering et orchestration</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="Data engineering et orchestration : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="Data engineering et orchestration : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -427,7 +437,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Cloud, conteneurs et déploiement</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="Cloud, conteneurs et déploiement : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="Cloud, conteneurs et déploiement : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -440,7 +450,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Frontend et interfaces de démonstration</span>
           <span class="skill-level">Intermédiaire</span>
         </div>
-        <div class="bar" role="img" aria-label="Frontend et interfaces de démonstration : niveau 3 sur 5">
+        <div class="bar" role="img" aria-label="Frontend et interfaces de démonstration : 3/5">
           <div class="bar-fill" style="width:60%"></div>
         </div>
       </div>
@@ -449,7 +459,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Communication technique et architecture</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="Communication technique et architecture : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="Communication technique et architecture : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -458,7 +468,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Gestion de projet et cadrage IA</span>
           <span class="skill-level">Avancé</span>
         </div>
-        <div class="bar" role="img" aria-label="Gestion de projet et cadrage IA : niveau 4 sur 5">
+        <div class="bar" role="img" aria-label="Gestion de projet et cadrage IA : 4/5">
           <div class="bar-fill" style="width:80%"></div>
         </div>
       </div>
@@ -467,7 +477,7 @@ footer a{color:var(--gold)}
           <span class="skill-name">Anglais technique</span>
           <span class="skill-level">Expert</span>
         </div>
-        <div class="bar" role="img" aria-label="Anglais technique : niveau 5 sur 5">
+        <div class="bar" role="img" aria-label="Anglais technique : 5/5">
           <div class="bar-fill" style="width:100%"></div>
         </div>
       </div>
@@ -485,18 +495,16 @@ footer a{color:var(--gold)}
   </div>
 </section>
 
-<section id="marche" aria-labelledby="titre-marche">
+<section id="marche-fr" aria-labelledby="titre-marche-fr">
   <div class="container">
-    <h2 id="titre-marche">Ce que le marché demande en 2026 — et où j'en suis</h2>
-    <p class="section-intro">
-      J'ai analysé les compétences recherchées sur le marché de l'ingénierie IA
-      pour positionner mon profil et orienter mes prochains apprentissages.
-    </p>
+    <h2 id="titre-marche-fr">Ce que le marché demande en 2026 — et où j&#x27;en suis</h2>
+    <p class="section-intro">J&#x27;ai analysé les compétences recherchées sur le marché de l&#x27;ingénierie IA pour positionner mon profil et orienter mes prochains apprentissages.</p>
     <div class="table-wrap">
       <table>
         <caption class="sr-only">Compétences demandées par le marché et mon positionnement</caption>
         <thead>
-          <tr><th scope="col">Compétence</th><th scope="col">Signal marché</th><th scope="col">Statut</th><th scope="col">Mes preuves / plan</th></tr>
+          <tr><th scope="col">Compétence</th><th scope="col">Signal marché</th>
+          <th scope="col">Statut</th><th scope="col">Mes preuves / plan</th></tr>
         </thead>
         <tbody>
       <tr>
@@ -553,9 +561,9 @@ footer a{color:var(--gold)}
   </div>
 </section>
 
-<section id="experience" aria-labelledby="titre-exp">
+<section id="experience-fr" aria-labelledby="titre-exp-fr">
   <div class="container">
-    <h2 id="titre-exp">Expérience professionnelle</h2>
+    <h2 id="titre-exp-fr">Expérience professionnelle</h2>
     <ol class="timeline">
     <li class="timeline-item">
       <h3>Senior Developer / IT Innovation Advisor — Allianz Trade (Paris)</h3>
@@ -596,15 +604,15 @@ footer a{color:var(--gold)}
   </div>
 </section>
 
-<section id="reflexion" aria-labelledby="titre-reflexion">
+<section id="reflexion-fr" aria-labelledby="titre-reflexion-fr">
   <div class="container">
-    <h2 id="titre-reflexion">Le recul que la formation m'a donné</h2>
+    <h2 id="titre-reflexion-fr">Le recul que la formation m&#x27;a donné</h2>
     <ul class="reflections"><li>Ma perception du métier a évolué : je vois l&#x27;ingénierie IA comme une compétence full-stack sur le cycle de vie du système d&#x27;information, pas seulement comme l&#x27;entraînement de modèles.</li><li>Les projets MLOps m&#x27;ont appris que la valeur d&#x27;un modèle dépend autant de sa surveillance, de son déploiement et de sa maintenabilité que de sa métrique initiale.</li><li>Avec du recul, je structurerais plus tôt les preuves, les captures et les décisions d&#x27;architecture pour réduire l&#x27;effort de documentation en fin de projet.</li><li>Je veux approfondir le monitoring avancé, les architectures multi-agents et l&#x27;évaluation des LLM en conditions proches de la production.</li></ul>
   </div>
 </section>
 </main>
 
-<footer id="contact">
+<footer id="contact-fr">
   <div class="container">
     <h2>Contact</h2>
     <p>
@@ -615,5 +623,515 @@ footer a{color:var(--gold)}
     <p class="footer-copy">© 2026 David MEDRAGH</p>
   </div>
 </footer>
+</div>
+
+<div id="content-en" class="lang-block" hidden>
+<a class="skip" href="#projet-phare-en">Skip to content</a>
+
+<header class="hero" id="haut-en">
+  <div class="container">
+    <p class="hero-kicker">Full-Stack AI Engineer &middot; Senior Developer</p>
+    <h1>David MEDRAGH</h1>
+    <p class="hero-pitch">Senior software engineer and <strong>full-stack AI engineer</strong>, I work across the entire information-system lifecycle: scoping, data engineering, ML/LLM models, APIs, <strong>MLOps</strong>, CI/CD, monitoring and continuous improvement, grounded in the <strong>trade credit insurance</strong> business.</p>
+    <nav class="hero-links" aria-label="Liens principaux">
+      <a class="btn btn-primary" href="#projet-phare-en">See the flagship project</a>
+      <a class="btn" href="carte-conceptuelle.html">Skills map (FR)</a>
+      <a class="btn" href="https://www.linkedin.com/in/david-medragh-a339b615/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="btn" href="https://github.com/davidmedragh" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="btn" href="mailto:david.medragh@gmail.com">Contact me</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="topnav" aria-label="Navigation du portfolio">
+  <div class="container"><a href="#projet-phare-en">Flagship project</a><a href="#projets-en">Projects</a><a href="#competences-en">Skills</a><a href="#marche-en">Market</a><a href="#experience-en">Experience</a><a href="#reflexion-en">Reflection</a><a href="#contact-en">Contact</a></div>
+</nav>
+<main>
+
+<section class="live" id="projet-phare-en" aria-labelledby="titre-phare-en">
+  <div class="container">
+    <h2 id="titre-phare-en">Flagship project — Closing the MLOps loop <span class="live-pill">live systems</span></h2>
+    <p>My personal technical project: when data drift is detected on a credit-scoring model, it is <strong>retrained, validated and promoted to production automatically</strong>. Data drift (Evidently, daily) and model drift (River, weekly) both trigger retraining; an AUC gate protects production. Everything below is real and browsable:</p>
+    <div class="demo-grid">
+    <a class="demo-card" href="https://davidaz-trade-projet15.hf.space" target="_blank" rel="noopener noreferrer">
+      <span class="demo-dot" aria-hidden="true"></span>
+      <span class="demo-title">Drift dashboard — Evidently UI</span>
+      <span class="demo-desc">Self-hosted in Docker on a Hugging Face Space: reports, trend and datasets for the credit-scoring model</span>
+    </a>
+    <a class="demo-card" href="https://dagshub.com/david.medragh/projet15" target="_blank" rel="noopener noreferrer">
+      <span class="demo-dot" aria-hidden="true"></span>
+      <span class="demo-title">MLflow + Model Registry — DagsHub</span>
+      <span class="demo-desc">Experiments, metrics and model lifecycle (staging → production → archived)</span>
+    </a>
+    <a class="demo-card" href="https://github.com/davidmedragh/projet15/actions" target="_blank" rel="noopener noreferrer">
+      <span class="demo-dot" aria-hidden="true"></span>
+      <span class="demo-title">CI/CD pipelines — GitHub Actions</span>
+      <span class="demo-desc">7 fail-fast jobs: tests, ≥ 90% coverage, dual drift detection, retraining, promotion</span>
+    </a></div>
+    <p class="live-more">
+      <a href="https://github.com/davidmedragh/projet15" target="_blank" rel="noopener noreferrer">Source code, 13 UML diagrams and project report →</a>
+    </p>
+  </div>
+</section>
+
+<section id="projets-en" aria-labelledby="titre-projets-en">
+  <div class="container">
+    <h2 id="titre-projets-en">15 projects, from supervised ML to LLMs</h2>
+    <p class="section-intro">Each project is documented, tested and version-controlled — the code is the source of truth.</p>
+    <div class="grid">
+    <article class="card">
+      <h3><span aria-hidden="true">👕</span> Project 2 — Serverless Hugging Face API for image segmentation</h3>
+      <p>Serverless access to the `segformer_b2_clothes` model to automatically segment images of clothes and people.</p>
+      <ul class="chips" aria-label="Stack technique"><li>Hugging Face Inference API (serverless)</li><li>SegFormer B2 (segmentation vêtements/personnes)</li><li>requests</li><li>Pillow</li><li>NumPy</li><li>matplotlib</li><li class="chip-more">+2</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet2" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🏙️</span> Project 3 — Building energy consumption analysis</h3>
+      <p>Supervised modelling of CO2 emissions and energy consumption for buildings in Seattle.</p>
+      <ul class="chips" aria-label="Stack technique"><li>pandas</li><li>NumPy</li><li>SciPy</li><li>scikit-learn (régressions, ensembles, GridSearchCV)</li><li>seaborn</li><li>matplotlib</li><li class="chip-more">+1</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet3" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">📊</span> Project 4 — Automatic classification of information</h3>
+      <p>Supervised classification to identify attrition causes at an IT consultancy, using HR, evaluation and survey data.</p>
+      <ul class="chips" aria-label="Stack technique"><li>scikit-learn</li><li>imbalanced-learn</li><li>SHAP</li><li>pandas</li><li>pyarrow</li><li>seaborn</li><li class="chip-more">+1</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet4" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🚢</span> Project 5 — Deploying a Machine Learning model</h3>
+      <p>Turning an ML model into a production-ready service: API, CI/CD, database, tests and documentation.</p>
+      <ul class="chips" aria-label="Stack technique"><li>FastAPI</li><li>uvicorn</li><li>SQLAlchemy</li><li>PostgreSQL (psycopg2) / SQLite</li><li>joblib</li><li>Docker Compose</li><li class="chip-more">+2</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet5" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🧪</span> Project 6 — MLOps, part 1</h3>
+      <p>First MLOps structuring around credit scoring: data prep, MLflow experiments, optimisation and business threshold.</p>
+      <ul class="chips" aria-label="Stack technique"><li>MLflow Tracking</li><li>LightGBM</li><li>XGBoost</li><li>scikit-learn</li><li>skops</li><li>missingno</li><li class="chip-more">+2</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet6" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">📡</span> Project 7 — MLOps, part 2</h3>
+      <p>Industrialising credit scoring: API, containerisation, CI/CD, monitoring, DEV/TEST/PROD environments and drift detection.</p>
+      <ul class="chips" aria-label="Stack technique"><li>FastAPI + Pydantic Settings</li><li>ONNX Runtime (skl2onnx, onnxmltools)</li><li>LightGBM</li><li>Evidently</li><li>Prometheus + Grafana Cloud</li><li>OpenSearch</li><li class="chip-more">+6</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet7" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🔎</span> Project 8 — RAG system</h3>
+      <p>Designing and deploying a RAG system with OpenAgenda preprocessing, FAISS, LangChain, API and containerisation.</p>
+      <ul class="chips" aria-label="Stack technique"><li>LangChain (community, huggingface, mistralai)</li><li>Mistral AI (LLM)</li><li>sentence-transformers</li><li>FAISS</li><li>RAGAS</li><li>Hugging Face datasets</li><li class="chip-more">+3</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet8" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">📐</span> Project 9 — Scoping an AI project</h3>
+      <p>Business scoping, planning, cost sizing, risk management and personal-data compliance.</p>
+      <ul class="chips" aria-label="Stack technique"><li>templates de cadrage</li><li>system design</li><li>matrices de risques</li><li>NumPy + matplotlib (courbes budget)</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet9" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🩻</span> Project 10 — Semi-supervised approaches for image processing</h3>
+      <p>Exploring X-rays, feature extraction, clustering and semi-supervised learning.</p>
+      <ul class="chips" aria-label="Stack technique"><li>PyTorch</li><li>torchvision (ResNet50)</li><li>OpenCV</li><li>scikit-learn (PCA, t-SNE, K-Means)</li><li>Plotly</li><li>Pillow</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet10" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🎮</span> Project 11 — Reinforcement learning agent</h3>
+      <p>CartPole, FrozenLake, DQN exercises and the Eagle-1 mission on LunarLander.</p>
+      <ul class="chips" aria-label="Stack technique"><li>Gymnasium (CartPole, FrozenLake, LunarLander)</li><li>PyTorch (DQN)</li><li>Stable-Baselines3 (PPO)</li><li>TensorBoard</li><li>MoviePy</li><li>Streamlit</li><li class="chip-more">+1</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet11" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🕸️</span> Project 12 — Multimodal data extraction from websites</h3>
+      <p>Local pipeline for source qualification, extraction, transformation, Airflow orchestration, MongoDB storage and KPI monitoring.</p>
+      <ul class="chips" aria-label="Stack technique"><li>Airflow (DAGs)</li><li>MongoDB (pymongo)</li><li>Playwright</li><li>BeautifulSoup4 + lxml</li><li>feedparser (RSS)</li><li>NewsData API</li><li class="chip-more">+2</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet12" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">♟️</span> Project 13 — AI agent</h3>
+      <p>An AI agent for learning chess: LangGraph, Milvus RAG, YouTube API, Angular and Docker packaging.</p>
+      <ul class="chips" aria-label="Stack technique"><li>LangGraph</li><li>Milvus (pymilvus)</li><li>sentence-transformers</li><li>Stockfish + python-chess</li><li>YouTube Data API</li><li>FastAPI</li><li class="chip-more">+3</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet13" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🏥</span> Project 14 — Fine-tuning an LLM</h3>
+      <p>Medical-triage agent POC: dataset, SFT/LoRA, DPO, MLflow Registry, vLLM, FastAPI and monitoring.</p>
+      <ul class="chips" aria-label="Stack technique"><li>Qwen3-1.7B-Base</li><li>Hugging Face Transformers + Datasets + Hub</li><li>TRL (SFTTrainer, DPOTrainer)</li><li>PEFT/LoRA</li><li>Accelerate</li><li>PyTorch fp16</li><li class="chip-more">+9</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet14" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">♾️</span> Project 15 — AI Engineer portfolio &amp; closed-loop MLOps</h3>
+      <p>Personal technical project: drift detection, retraining, validation and automatic model promotion.</p>
+      <ul class="chips" aria-label="Stack technique"><li>LightGBM + scikit-learn</li><li>Evidently 0.7 + Evidently UI self-hosted (Docker sur HF Space)</li><li>River (ADWIN, DDM, PageHinkley)</li><li>MLflow 3 + Model Registry (SQLite dev / DagsHub prod)</li><li>GitHub Actions (7 jobs, crons quotidien + hebdo)</li><li>pytest (93 tests, couverture ≥ 90 %)</li><li class="chip-more">+3</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet15" target="_blank" rel="noopener noreferrer">View the GitHub repo →</a>
+    </article></div>
+  </div>
+</section>
+
+<section id="competences-en" aria-labelledby="titre-competences-en">
+  <div class="container">
+    <h2 id="titre-competences-en">Skills</h2>
+    <div class="skills-grid">
+    <div class="skill-group">
+      <h3>📊 Classic ML &amp; data science</h3>
+      
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Scientific Python &amp; environment</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Scientific Python &amp; environment : 5/5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Data preparation &amp; analysis</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Data preparation &amp; analysis : 5/5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Supervised machine learning</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Supervised machine learning : 5/5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Business modelling &amp; scoring</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Business modelling &amp; scoring : 5/5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">ML evaluation &amp; interpretability</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="ML evaluation &amp; interpretability : 5/5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Deep learning &amp; computer vision</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="Deep learning &amp; computer vision : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>🧠 LLM, NLP, RAG &amp; agents</h3>
+      
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">NLP, embeddings &amp; RAG</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="NLP, embeddings &amp; RAG : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">AI agents &amp; LLM orchestration</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="AI agents &amp; LLM orchestration : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">LLM fine-tuning &amp; alignment</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="LLM fine-tuning &amp; alignment : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">LLM serving &amp; inference</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="LLM serving &amp; inference : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>♾️ MLOps, quality &amp; production</h3>
+      
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">MLOps tracking &amp; registry</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="MLOps tracking &amp; registry : 5/5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Monitoring, drift &amp; observability</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Monitoring, drift &amp; observability : 5/5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">CI/CD, testing &amp; software quality</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="CI/CD, testing &amp; software quality : 5/5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Backend APIs &amp; service contracts</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="Backend APIs &amp; service contracts : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Data engineering &amp; orchestration</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="Data engineering &amp; orchestration : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Cloud, containers &amp; deployment</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="Cloud, containers &amp; deployment : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>🧩 Product, architecture &amp; communication</h3>
+      
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Frontend &amp; demo interfaces</span>
+          <span class="skill-level">Intermediate</span>
+        </div>
+        <div class="bar" role="img" aria-label="Frontend &amp; demo interfaces : 3/5">
+          <div class="bar-fill" style="width:60%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Technical communication &amp; architecture</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="Technical communication &amp; architecture : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Project management &amp; AI scoping</span>
+          <span class="skill-level">Advanced</span>
+        </div>
+        <div class="bar" role="img" aria-label="Project management &amp; AI scoping : 4/5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Technical English</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Technical English : 5/5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="two-cols">
+      <div>
+        <h3>Languages</h3>
+        <ul class="plain"><li><strong>French</strong> — Native language</li><li><strong>English</strong> — Fluent</li></ul>
+      </div>
+      <div>
+        <h3>Soft skills</h3>
+        <ul class="plain"><li><strong>Analytical thinking</strong> : I connect business needs to metrics, risks and technical choices.</li><li><strong>Problem-solving</strong> : I break a difficulty down into tests, hypotheses and reproducible validations.</li><li><strong>Technical curiosity</strong> : I progressively broadened my scope from classic ML to RAG, agents, LLMs and MLOps.</li><li><strong>Communication</strong> : I turn technical systems into readable material: READMEs, reports, UML, presentations and dashboards.</li><li><strong>Autonomy</strong> : I can run a project end-to-end: scoping, implementation, testing, documentation and delivery.</li><li><strong>Rigor</strong> : I favour evidence, metrics, tests and traceability over unverified claims.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="marche-en" aria-labelledby="titre-marche-en">
+  <div class="container">
+    <h2 id="titre-marche-en">What the market wants in 2026 — and where I stand</h2>
+    <p class="section-intro">I analysed the skills sought on the AI engineering job market to position my profile and guide what I learn next.</p>
+    <div class="table-wrap">
+      <table>
+        <caption class="sr-only">Skills demanded by the market and my current positioning</caption>
+        <thead>
+          <tr><th scope="col">Skill</th><th scope="col">Market signal</th>
+          <th scope="col">Status</th><th scope="col">My evidence / plan</th></tr>
+        </thead>
+        <tbody>
+      <tr>
+        <th scope="row">Domain specialisation (finance / trade credit insurance)</th>
+        <td>AI engineering roles strongly value real business-domain grounding</td>
+        <td><span class="badge badge-ok">Acquired</span></td>
+        <td>Allianz Trade + scoring projects P6, P7, P15</td>
+      </tr>
+      <tr>
+        <th scope="row">Production MLOps: CI/CD, monitoring, registry</th>
+        <td>The baseline expected everywhere — a model must be deployed, monitored, updated</td>
+        <td><span class="badge badge-ok">Acquired</span></td>
+        <td>P5-P7, P15 — MLflow, Evidently, River, GitHub Actions, fail fast</td>
+      </tr>
+      <tr>
+        <th scope="row">RAG &amp; vector databases</th>
+        <td>Present in ~65% of applied-LLM job postings</td>
+        <td><span class="badge badge-ok">Acquired</span></td>
+        <td>P8, P13 — FAISS, Milvus, LangChain, sentence-transformers, RAGAS</td>
+      </tr>
+      <tr>
+        <th scope="row">LLM fine-tuning &amp; serving</th>
+        <td>LLM specialists are among the most sought-after profiles</td>
+        <td><span class="badge badge-ok">Acquired</span></td>
+        <td>P14 — SFT/LoRA, DPO, vLLM, GPU cost sizing</td>
+      </tr>
+      <tr>
+        <th scope="row">AI agents &amp; orchestration</th>
+        <td>Agentic AI is the 2026 wave (tool calling, MCP)</td>
+        <td><span class="badge badge-ok">Acquired</span></td>
+        <td>P13 — LangGraph, tool-using agent, external integrations</td>
+      </tr>
+      <tr>
+        <th scope="row">LLM evaluation &amp; guardrails</th>
+        <td>Eval design is becoming a differentiating hiring criterion</td>
+        <td><span class="badge badge-progress">In progress</span></td>
+        <td>RAGAS practised (P8) — I&#x27;m deepening evaluation under production conditions</td>
+      </tr>
+      <tr>
+        <th scope="row">Kubernetes &amp; orchestration</th>
+        <td>~18% of MLOps postings mention it explicitly</td>
+        <td><span class="badge badge-ok">Acquired</span></td>
+        <td>Professional experience: AWS EKS (managed Kubernetes), Redshift</td>
+      </tr>
+      <tr>
+        <th scope="row">Managed cloud AI platforms (SageMaker, Vertex AI)</th>
+        <td>Common in large enterprises</td>
+        <td><span class="badge badge-ok">Acquired</span></td>
+        <td>Certified in multi-cloud AI: AWS, Azure, Microsoft and Oracle</td>
+      </tr></tbody>
+      </table>
+    </div>
+    <p class="sources">Sources: <a href="https://www.secondtalent.com/resources/most-in-demand-ai-engineering-skills-and-salary-ranges/" target="_blank" rel="noopener noreferrer">Second Talent — In-demand AI engineering skills 2026</a> · <a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026" target="_blank" rel="noopener noreferrer">Digital Applied — AI developer hiring 2026</a> · <a href="https://futurense.com/blog/ai-skills-in-demand" target="_blank" rel="noopener noreferrer">Futurense — AI skills in demand</a></p>
+  </div>
+</section>
+
+<section id="experience-en" aria-labelledby="titre-exp-en">
+  <div class="container">
+    <h2 id="titre-exp-en">Professional experience</h2>
+    <ol class="timeline">
+    <li class="timeline-item">
+      <h3>Senior Developer / IT Innovation Advisor — Allianz Trade (Paris)</h3>
+      <ul class="plain"><li>Trade credit insurance: the business domain behind my scoring projects (P6, P7, P15)</li><li>Technology watch and IT innovation advisory within the company</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Tech Lead / Senior Developer — Groupe Zannier S.A.</h3>
+      <ul class="plain"><li>Technical leadership and software development in the retail sector</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Expert / Technical Lead, Java, JEE &amp; BI — Société Générale (ART project)</h3>
+      <ul class="plain"><li>Java/JEE, ETL and Business Intelligence expertise in the banking sector</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>JEE, Data &amp; BI Engineer — RATP</h3>
+      <ul class="plain"><li>Business Intelligence development: ETL, data warehouses and reporting</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>JEE, Data &amp; BI Engineer — Monoprix</h3>
+      <ul class="plain"><li>ETL pipelines and BI reporting in the retail sector</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>A data-engineering through-line</h3>
+      <ul class="plain"><li>Several years in ETL, BI and data engineering — the direct foundation of my current ML and MLOps work</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Computer Engineering degree — EPITA (2007-2009)</h3>
+      <ul class="plain"><li>A senior profile: solid software-engineering and data experience predating my AI training</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Cloud &amp; AI certifications</h3>
+      <ul class="plain"><li>Certified in multi-cloud AI: AWS, Azure, Microsoft, Oracle</li><li>AWS certifications: Cloud Practitioner, Enterprise Security, Cloud Architecture, Controlling Cost</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Bridge between experience and training</h3>
+      <ul class="plain"><li>My personal technical project (P15) closes the MLOps loop of a credit-scoring model — my employer&#x27;s core business</li><li>Confidentiality respected: no internal project detail is disclosed</li></ul>
+    </li></ol>
+  </div>
+</section>
+
+<section id="reflexion-en" aria-labelledby="titre-reflexion-en">
+  <div class="container">
+    <h2 id="titre-reflexion-en">The perspective this training gave me</h2>
+    <ul class="reflections"><li>My view of the profession has evolved: I now see AI engineering as a full-stack skill across the information system&#x27;s lifecycle, not just model training.</li><li>The MLOps projects taught me that a model&#x27;s value depends as much on its monitoring, deployment and maintainability as on its initial metric.</li><li>In hindsight, I would structure evidence, screenshots and architecture decisions earlier to reduce the documentation effort at the end of a project.</li><li>I want to deepen advanced monitoring, multi-agent architectures and LLM evaluation under near-production conditions.</li></ul>
+  </div>
+</section>
+</main>
+
+<footer id="contact-en">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:david.medragh@gmail.com">david.medragh@gmail.com</a> ·
+      <a href="https://www.linkedin.com/in/david-medragh-a339b615/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+      <a href="https://github.com/davidmedragh" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </p>
+    <p class="footer-copy">© 2026 David MEDRAGH</p>
+  </div>
+</footer>
+</div>
+<script>
+(function(){
+  var TITLES = {"fr": "David MEDRAGH — Ingénieur IA full-stack · MLOps, LLM & assurance crédit", "en": "David MEDRAGH — Full-Stack AI Engineer · MLOps, LLM & Trade Credit Insurance"};
+  var DESCS = {"fr": "Portfolio de David MEDRAGH, ingénieur IA full-stack : ML, RAG, agents, fine-tuning LLM, MLOps, APIs, monitoring et cycle de vie SI.", "en": "Portfolio of David MEDRAGH, full-stack AI engineer: ML, RAG, agents, LLM fine-tuning, MLOps, APIs, monitoring and IT-system lifecycle."};
+  function apply(lang){
+    document.documentElement.lang = lang;
+    var fr = document.getElementById('content-fr');
+    var en = document.getElementById('content-en');
+    if (fr) fr.hidden = (lang !== 'fr');
+    if (en) en.hidden = (lang !== 'en');
+    var frBtn = document.getElementById('lang-fr-btn');
+    var enBtn = document.getElementById('lang-en-btn');
+    if (frBtn) frBtn.setAttribute('aria-pressed', String(lang === 'fr'));
+    if (enBtn) enBtn.setAttribute('aria-pressed', String(lang === 'en'));
+    if (TITLES[lang]) document.title = TITLES[lang];
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta && DESCS[lang]) meta.setAttribute('content', DESCS[lang]);
+    try { localStorage.setItem('site-lang', lang); } catch (e) {}
+  }
+  window.setSiteLang = apply;
+  var stored = null;
+  try { stored = localStorage.getItem('site-lang'); } catch (e) {}
+  apply(stored === 'en' ? 'en' : 'fr');
+})();
+</script>
 </body>
 </html>
