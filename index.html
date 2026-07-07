@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>David MEDRAGH — AI Engineer · MLOps, LLM & assurance crédit</title>
+  <meta name="description" content="Portfolio de David MEDRAGH, AI Engineer : 15 projets (ML, RAG, agents, fine-tuning LLM, MLOps), démos en ligne, plus de 15 ans d'ingénierie logicielle en finance.">
+  <style>
+:root{
+  --navy:#0d1b2a; --navy-2:#12243a; --gold:#d4a03c; --teal:#0f9b8a;
+  --ink:#1c2534; --muted:#5c6b80; --line:#dde5ef; --bg:#f7f9fc; --panel:#ffffff;
+  --ok:#0f766e; --progress:#b45309; --next:#475569;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px}
+.container{max-width:1080px;margin:0 auto;padding:0 22px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:0;background:var(--gold);color:var(--navy);
+  padding:10px 16px;font-weight:700;z-index:99}
+.skip:focus{left:12px;top:12px}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+h2{font-size:1.7rem;margin-top:0}
+a{color:#1d4ed8}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.hero{background:linear-gradient(150deg,var(--navy) 0%,#16304f 70%,#1b3a5c 100%);
+  color:#eef3f9;padding:72px 0 56px;border-bottom:4px solid var(--gold)}
+.hero-kicker{color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  font-size:.85rem;margin:0 0 10px}
+.hero h1{font-size:clamp(2.1rem,5vw,3.2rem);color:#fff}
+.hero-pitch{max-width:760px;font-size:1.08rem;color:#d7e1ee}
+.hero-pitch strong{color:#fff}
+.hero-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;border:1px solid rgba(255,255,255,.35);
+  color:#fff;text-decoration:none;font-weight:600;font-size:.95rem}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn-primary{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn-primary:hover{background:#e2b45a;color:var(--navy)}
+
+.topnav{position:sticky;top:0;background:rgba(13,27,42,.96);backdrop-filter:blur(6px);z-index:50;
+  border-bottom:1px solid rgba(255,255,255,.08)}
+.topnav .container{display:flex;flex-wrap:wrap;gap:4px;padding-top:8px;padding-bottom:8px}
+.topnav a{color:#cdd9e8;text-decoration:none;padding:7px 12px;border-radius:6px;font-size:.92rem}
+.topnav a:hover{background:rgba(212,160,60,.16);color:var(--gold)}
+
+section,footer{padding:56px 0}
+section:nth-of-type(even){background:#eef2f8}
+.section-intro{color:var(--muted);max-width:720px}
+
+.live{background:var(--navy-2);color:#dfe8f2}
+.live h2{color:#fff}
+.live-pill{display:inline-block;font-size:.72rem;vertical-align:middle;margin-left:10px;
+  background:rgba(15,155,138,.2);color:#5eead4;border:1px solid #2dd4bf55;
+  padding:3px 10px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:22px}
+.demo-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:10px;
+  padding:16px;text-decoration:none;color:#dfe8f2;display:flex;flex-direction:column;gap:6px}
+.demo-card:hover{border-color:var(--gold)}
+.demo-dot{width:9px;height:9px;border-radius:50%;background:#34d399;
+  box-shadow:0 0 0 4px rgba(52,211,153,.18)}
+.demo-title{font-weight:700;color:#fff}
+.demo-desc{font-size:.88rem;color:#b9c7d8}
+.live-more a{color:var(--gold)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;
+  display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 14px rgba(15,23,42,.05)}
+.card h3{font-size:1.02rem;margin:0}
+.card p{margin:0;font-size:.92rem;color:var(--muted)}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:4px 0 0}
+.chips li{font-size:.76rem;background:#eef2f8;border:1px solid var(--line);border-radius:999px;
+  padding:3px 9px;color:#33415c}
+.chip-more{background:var(--navy);color:#fff !important;border-color:var(--navy)}
+.card-link{margin-top:auto;font-weight:600;font-size:.9rem;text-decoration:none}
+.card-link:hover{text-decoration:underline}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.skill-group{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px}
+.skill-group h3{font-size:1rem}
+.skill{margin:10px 0}
+.skill-head{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:4px}
+.skill-level{color:var(--muted)}
+.bar{height:9px;background:#e6ecf5;border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--navy),#2c5f92 60%,var(--gold));border-radius:999px}
+.two-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:26px}
+.plain{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:.94rem}
+
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;background:var(--panel);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;font-size:.92rem}
+th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--navy);color:#fff;font-size:.85rem}
+tbody th{font-weight:600}
+.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap}
+.badge-ok{background:var(--ok)}
+.badge-progress{background:var(--progress)}
+.badge-next{background:var(--next)}
+.sources{font-size:.84rem;color:var(--muted);margin-top:14px}
+
+.timeline{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:18px}
+.timeline-item{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:8px;padding:16px 18px}
+.timeline-item h3{font-size:1rem;margin-bottom:6px}
+.timeline-item ul{font-size:.92rem;color:var(--muted)}
+
+.reflections{max-width:780px;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+
+footer{background:var(--navy);color:#cdd9e8;border-top:4px solid var(--gold)}
+footer h2{color:#fff}
+footer a{color:var(--gold)}
+.footer-note{font-size:.9rem;color:#9fb2c8}
+.footer-copy{font-size:.82rem;color:#7a8ea6;margin-top:18px}
+
+@media (max-width:640px){
+  .hero{padding:52px 0 40px}
+  section,footer{padding:40px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#projet-phare">Aller au contenu</a>
+
+<header class="hero" id="haut">
+  <div class="container">
+    <p class="hero-kicker">AI Engineer &middot; Senior Developer</p>
+    <h1>David MEDRAGH</h1>
+    <p class="hero-pitch">
+      Plus de 15 ans d'ingénierie logicielle (Société Générale, Groupe Zannier, Allianz Trade),
+      devenu <strong>AI Engineer</strong> : 15 projets couvrant le machine learning, le RAG,
+      les agents, le fine-tuning de LLM et surtout le <strong>MLOps</strong> —
+      ma spécialité est d'industrialiser les modèles, avec un ancrage métier en
+      <strong>assurance crédit</strong>.
+    </p>
+    <nav class="hero-links" aria-label="Liens principaux">
+      <a class="btn btn-primary" href="#projet-phare">Voir le projet phare</a>
+      <a class="btn" href="https://www.linkedin.com/in/david-medragh-a339b615/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="btn" href="https://github.com/davidmedragh" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="btn" href="https://www.doyoubuzz.com/david-medragh" target="_blank" rel="noopener noreferrer">CV en ligne</a>
+      <a class="btn" href="mailto:david.medragh@gmail.com">Me contacter</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="topnav" aria-label="Navigation du portfolio">
+  <div class="container"><a href="#projet-phare">Projet phare</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#marche">Marché</a><a href="#experience">Expérience</a><a href="#reflexion">Recul</a><a href="#contact">Contact</a></div>
+</nav>
+<main>
+
+<section class="live" id="projet-phare" aria-labelledby="titre-phare">
+  <div class="container">
+    <h2 id="titre-phare">Projet phare — Fermer la boucle MLOps <span class="live-pill">systèmes en ligne</span></h2>
+    <p>
+      Mon projet personnel technique : quand la dérive des données d'un scoring crédit est détectée,
+      le modèle est <strong>réentraîné, validé et promu en production automatiquement</strong>.
+      Data drift (Evidently, quotidien) et model drift (River, hebdomadaire) déclenchent tous deux
+      le réentraînement ; une gate AUC protège la production. Tout est visitable, en vrai :
+    </p>
+    <div class="demo-grid">
+    <a class="demo-card" href="https://davidaz-trade-projet15.hf.space" target="_blank" rel="noopener noreferrer">
+      <span class="demo-dot" aria-hidden="true"></span>
+      <span class="demo-title">Dashboard de drift — Evidently UI</span>
+      <span class="demo-desc">Self-hosted en Docker sur un Hugging Face Space : rapports, tendance et datasets du scoring crédit</span>
+    </a>
+    <a class="demo-card" href="https://dagshub.com/david.medragh/projet15" target="_blank" rel="noopener noreferrer">
+      <span class="demo-dot" aria-hidden="true"></span>
+      <span class="demo-title">MLflow + Model Registry — DagsHub</span>
+      <span class="demo-desc">Expériences, métriques et cycle de vie des modèles (staging → production → archived)</span>
+    </a>
+    <a class="demo-card" href="https://github.com/davidmedragh/projet15/actions" target="_blank" rel="noopener noreferrer">
+      <span class="demo-dot" aria-hidden="true"></span>
+      <span class="demo-title">Pipelines CI/CD — GitHub Actions</span>
+      <span class="demo-desc">7 jobs fail fast : tests, couverture ≥ 90 %, double détection de drift, réentraînement, promotion</span>
+    </a></div>
+    <p class="live-more">
+      <a href="https://github.com/davidmedragh/projet15" target="_blank" rel="noopener noreferrer">Code source, 13 diagrammes UML et rapport de conduite de projet →</a>
+    </p>
+  </div>
+</section>
+
+<section id="projets" aria-labelledby="titre-projets">
+  <div class="container">
+    <h2 id="titre-projets">15 projets, du ML supervisé aux LLM</h2>
+    <p class="section-intro">Chaque projet est documenté, testé et versionné — le code fait foi.</p>
+    <div class="grid">
+    <article class="card">
+      <h3><span aria-hidden="true">👕</span> Projet 2 — API Serverless Hugging Face pour la segmentation d&#x27;images</h3>
+      <p>Accès serverless au modèle `segformer_b2_clothes` pour segmenter automatiquement des images de vêtements et de personnes.</p>
+      <ul class="chips" aria-label="Stack technique"><li>Hugging Face Inference API (serverless)</li><li>SegFormer B2 (segmentation vêtements/personnes)</li><li>requests</li><li>Pillow</li><li>NumPy</li><li>matplotlib</li><li class="chip-more">+2</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet2" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🏙️</span> Projet 3 — Analyse de la consommation énergétique des bâtiments</h3>
+      <p>Modélisation supervisée des émissions de CO2 et de la consommation énergétique de bâtiments à Seattle.</p>
+      <ul class="chips" aria-label="Stack technique"><li>pandas</li><li>NumPy</li><li>SciPy</li><li>scikit-learn (régressions, ensembles, GridSearchCV)</li><li>seaborn</li><li>matplotlib</li><li class="chip-more">+1</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet3" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">📊</span> Projet 4 — Classification automatique d&#x27;informations</h3>
+      <p>Classification supervisée pour identifier les causes d&#x27;attrition dans une ESN, avec données SIRH, évaluations et sondage.</p>
+      <ul class="chips" aria-label="Stack technique"><li>scikit-learn</li><li>imbalanced-learn</li><li>SHAP</li><li>pandas</li><li>pyarrow</li><li>seaborn</li><li class="chip-more">+1</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet4" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🚢</span> Projet 5 — Déploiement d&#x27;un modèle de Machine Learning</h3>
+      <p>Transformation d&#x27;un modèle ML en service exploitable : API, CI/CD, base de données, tests et documentation.</p>
+      <ul class="chips" aria-label="Stack technique"><li>FastAPI</li><li>uvicorn</li><li>SQLAlchemy</li><li>PostgreSQL (psycopg2) / SQLite</li><li>joblib</li><li>Docker Compose</li><li class="chip-more">+2</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet5" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🧪</span> Projet 6 — MLOps partie 1</h3>
+      <p>Première structuration MLOps autour du scoring crédit : préparation, expérimentations MLflow, optimisation et seuil métier.</p>
+      <ul class="chips" aria-label="Stack technique"><li>MLflow Tracking</li><li>LightGBM</li><li>XGBoost</li><li>scikit-learn</li><li>skops</li><li>missingno</li><li class="chip-more">+2</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet6" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">📡</span> Projet 7 — MLOps partie 2</h3>
+      <p>Industrialisation du scoring crédit : API, conteneurisation, CI/CD, monitoring, environnements DEV/TEST/PROD et détection de drift.</p>
+      <ul class="chips" aria-label="Stack technique"><li>FastAPI + Pydantic Settings</li><li>ONNX Runtime (skl2onnx, onnxmltools)</li><li>LightGBM</li><li>Evidently</li><li>Prometheus + Grafana Cloud</li><li>OpenSearch</li><li class="chip-more">+6</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet7" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🔎</span> Projet 8 — Système RAG</h3>
+      <p>Conception et déploiement d&#x27;un système RAG avec preprocessing OpenAgenda, FAISS, LangChain, API et conteneurisation.</p>
+      <ul class="chips" aria-label="Stack technique"><li>LangChain (community, huggingface, mistralai)</li><li>Mistral AI (LLM)</li><li>sentence-transformers</li><li>FAISS</li><li>RAGAS</li><li>Hugging Face datasets</li><li class="chip-more">+3</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet8" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">📐</span> Projet 9 — Cadrage d&#x27;un projet IA</h3>
+      <p>Cadrage métier, planification, dimensionnement économique, gestion des risques et conformité des données personnelles.</p>
+      <ul class="chips" aria-label="Stack technique"><li>templates de cadrage</li><li>system design</li><li>matrices de risques</li><li>NumPy + matplotlib (courbes budget)</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet9" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🩻</span> Projet 10 — Approches semi-supervisées en traitement d&#x27;images</h3>
+      <p>Exploration de radiographies, extraction de features, clustering et apprentissage semi-supervisé.</p>
+      <ul class="chips" aria-label="Stack technique"><li>PyTorch</li><li>torchvision (ResNet50)</li><li>OpenCV</li><li>scikit-learn (PCA, t-SNE, K-Means)</li><li>Plotly</li><li>Pillow</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet10" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🎮</span> Projet 11 — Agent d&#x27;apprentissage par renforcement</h3>
+      <p>Exercices CartPole, FrozenLake, DQN et mission Eagle-1 sur LunarLander.</p>
+      <ul class="chips" aria-label="Stack technique"><li>Gymnasium (CartPole, FrozenLake, LunarLander)</li><li>PyTorch (DQN)</li><li>Stable-Baselines3 (PPO)</li><li>TensorBoard</li><li>MoviePy</li><li>Streamlit</li><li class="chip-more">+1</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet11" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🕸️</span> Projet 12 — Extraction de données multimodales de sites web</h3>
+      <p>Pipeline local de qualification, extraction, transformation, orchestration Airflow, stockage MongoDB et monitoring KPI.</p>
+      <ul class="chips" aria-label="Stack technique"><li>Airflow (DAGs)</li><li>MongoDB (pymongo)</li><li>Playwright</li><li>BeautifulSoup4 + lxml</li><li>feedparser (RSS)</li><li>NewsData API</li><li class="chip-more">+2</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet12" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">♟️</span> Projet 13 — Agent IA</h3>
+      <p>Agent IA pour l&#x27;apprentissage des échecs : LangGraph, RAG Milvus, API YouTube, Angular et packaging Docker.</p>
+      <ul class="chips" aria-label="Stack technique"><li>LangGraph</li><li>Milvus (pymilvus)</li><li>sentence-transformers</li><li>Stockfish + python-chess</li><li>YouTube Data API</li><li>FastAPI</li><li class="chip-more">+3</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet13" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🏥</span> Projet 14 — Fine-tuning d&#x27;un LLM</h3>
+      <p>POC d&#x27;agent de triage médical : dataset, SFT LoRA, DPO, MLflow Registry, vLLM, FastAPI et supervision.</p>
+      <ul class="chips" aria-label="Stack technique"><li>Qwen3-1.7B-Base</li><li>Hugging Face Transformers + Datasets + Hub</li><li>TRL (SFTTrainer, DPOTrainer)</li><li>PEFT/LoRA</li><li>Accelerate</li><li>PyTorch fp16</li><li class="chip-more">+9</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet14" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">♾️</span> Projet 15 — Portfolio AI Engineer et boucle MLOps fermée</h3>
+      <p>Projet personnel technique : drift détecté, réentraînement, validation et promotion automatique du modèle.</p>
+      <ul class="chips" aria-label="Stack technique"><li>LightGBM + scikit-learn</li><li>Evidently 0.7 + Evidently UI self-hosted (Docker sur HF Space)</li><li>River (ADWIN, DDM, PageHinkley)</li><li>MLflow 3 + Model Registry (SQLite dev / DagsHub prod)</li><li>GitHub Actions (7 jobs, crons quotidien + hebdo)</li><li>pytest (93 tests, couverture ≥ 90 %)</li><li class="chip-more">+3</li></ul>
+      <a class="card-link" href="https://github.com/davidmedragh/projet15" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub →</a>
+    </article></div>
+  </div>
+</section>
+
+<section id="competences" aria-labelledby="titre-competences">
+  <div class="container">
+    <h2 id="titre-competences">Compétences</h2>
+    <div class="skills-grid">
+    <div class="skill-group">
+      <h3>📊 ML classique &amp; data science</h3>
+      
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Python scientifique et environnement</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Python scientifique et environnement : niveau 5 sur 5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Préparation et analyse de données</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Préparation et analyse de données : niveau 5 sur 5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Machine Learning supervisé</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Machine Learning supervisé : niveau 5 sur 5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Modélisation métier et scoring</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Modélisation métier et scoring : niveau 5 sur 5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Évaluation et interprétabilité ML</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Évaluation et interprétabilité ML : niveau 5 sur 5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Deep Learning et vision</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="Deep Learning et vision : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>🧠 LLM, NLP, RAG &amp; agents</h3>
+      
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">NLP, embeddings et RAG</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="NLP, embeddings et RAG : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Agents IA et orchestration LLM</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="Agents IA et orchestration LLM : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">LLM fine-tuning et alignement</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="LLM fine-tuning et alignement : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Serving LLM et inférence</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="Serving LLM et inférence : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>♾️ MLOps, qualité &amp; production</h3>
+      
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">MLOps tracking et registry</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="MLOps tracking et registry : niveau 5 sur 5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Monitoring, drift et observabilité</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Monitoring, drift et observabilité : niveau 5 sur 5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">CI/CD, tests et qualité logicielle</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="CI/CD, tests et qualité logicielle : niveau 5 sur 5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Backend API et contrats applicatifs</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="Backend API et contrats applicatifs : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Data engineering et orchestration</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="Data engineering et orchestration : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Cloud, conteneurs et déploiement</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="Cloud, conteneurs et déploiement : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>🧩 Produit, architecture &amp; communication</h3>
+      
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Frontend et interfaces de démonstration</span>
+          <span class="skill-level">Intermédiaire</span>
+        </div>
+        <div class="bar" role="img" aria-label="Frontend et interfaces de démonstration : niveau 3 sur 5">
+          <div class="bar-fill" style="width:60%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Communication technique et architecture</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="Communication technique et architecture : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Gestion de projet et cadrage IA</span>
+          <span class="skill-level">Avancé</span>
+        </div>
+        <div class="bar" role="img" aria-label="Gestion de projet et cadrage IA : niveau 4 sur 5">
+          <div class="bar-fill" style="width:80%"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-head">
+          <span class="skill-name">Anglais technique</span>
+          <span class="skill-level">Expert</span>
+        </div>
+        <div class="bar" role="img" aria-label="Anglais technique : niveau 5 sur 5">
+          <div class="bar-fill" style="width:100%"></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="two-cols">
+      <div>
+        <h3>Langues</h3>
+        <ul class="plain"><li><strong>Français</strong> — Langue maternelle</li><li><strong>Anglais</strong> — Courant (fluent)</li></ul>
+      </div>
+      <div>
+        <h3>Soft skills</h3>
+        <ul class="plain"><li><strong>Esprit d&#x27;analyse</strong> : Je relie les besoins métier aux métriques, aux risques et aux choix techniques.</li><li><strong>Résolution de problèmes</strong> : Je sais découper une difficulté en tests, hypothèses et validations reproductibles.</li><li><strong>Curiosité technique</strong> : J&#x27;ai progressivement élargi mon périmètre du ML classique vers le RAG, les agents, les LLM et le MLOps.</li><li><strong>Communication</strong> : Je transforme des systèmes techniques en supports lisibles : README, rapports, UML, présentations et dashboards.</li><li><strong>Autonomie</strong> : Je sais mener un projet de bout en bout : cadrage, implémentation, test, documentation et livraison.</li><li><strong>Rigueur</strong> : Je privilégie les preuves, les métriques, les tests et la traçabilité plutôt que les affirmations non vérifiées.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="marche" aria-labelledby="titre-marche">
+  <div class="container">
+    <h2 id="titre-marche">Ce que le marché demande en 2026 — et où j'en suis</h2>
+    <p class="section-intro">
+      J'ai analysé les compétences recherchées sur le marché AI Engineer pour
+      positionner mon profil et orienter mes prochains apprentissages.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption class="sr-only">Compétences demandées par le marché et mon positionnement</caption>
+        <thead>
+          <tr><th scope="col">Compétence</th><th scope="col">Signal marché</th><th scope="col">Statut</th><th scope="col">Mes preuves / plan</th></tr>
+        </thead>
+        <tbody>
+      <tr>
+        <th scope="row">Spécialisation domaine (finance / assurance crédit)</th>
+        <td>Plus de 75 % des offres AI Engineer exigent un ancrage métier</td>
+        <td><span class="badge badge-ok">Acquis</span></td>
+        <td>Allianz Trade + projets de scoring P6, P7, P15</td>
+      </tr>
+      <tr>
+        <th scope="row">MLOps production : CI/CD, monitoring, registry</th>
+        <td>Le socle exigé partout — un modèle doit être déployé, surveillé, mis à jour</td>
+        <td><span class="badge badge-ok">Acquis</span></td>
+        <td>P5-P7, P15 — MLflow, Evidently, River, GitHub Actions, fail fast</td>
+      </tr>
+      <tr>
+        <th scope="row">RAG &amp; bases vectorielles</th>
+        <td>Présent dans ~65 % des offres LLM appliqué</td>
+        <td><span class="badge badge-ok">Acquis</span></td>
+        <td>P8, P13 — FAISS, Milvus, LangChain, sentence-transformers, RAGAS</td>
+      </tr>
+      <tr>
+        <th scope="row">Fine-tuning &amp; serving de LLM</th>
+        <td>Les spécialistes LLM sont les profils les plus recherchés</td>
+        <td><span class="badge badge-ok">Acquis</span></td>
+        <td>P14 — SFT/LoRA, DPO, vLLM, quantification des coûts GPU</td>
+      </tr>
+      <tr>
+        <th scope="row">Agents IA &amp; orchestration</th>
+        <td>L&#x27;agentic AI est la vague 2026 (tool calling, MCP)</td>
+        <td><span class="badge badge-ok">Acquis</span></td>
+        <td>P13 — LangGraph, agent outillé, intégrations externes</td>
+      </tr>
+      <tr>
+        <th scope="row">Évaluation des LLM &amp; guardrails</th>
+        <td>L&#x27;eval design devient un critère d&#x27;embauche différenciant</td>
+        <td><span class="badge badge-progress">En cours</span></td>
+        <td>RAGAS pratiqué (P8) — j&#x27;approfondis l&#x27;évaluation en conditions de production</td>
+      </tr>
+      <tr>
+        <th scope="row">Kubernetes</th>
+        <td>~18 % des offres MLOps le mentionnent explicitement</td>
+        <td><span class="badge badge-next">À acquérir</span></td>
+        <td>Prochain objectif : orchestration de modèles au-delà de Docker Compose</td>
+      </tr>
+      <tr>
+        <th scope="row">Plateformes cloud IA managées (SageMaker, Vertex AI)</th>
+        <td>Fréquent dans les grands comptes</td>
+        <td><span class="badge badge-next">À acquérir</span></td>
+        <td>Mes certifications AWS (2017-2019) me donnent la base cloud</td>
+      </tr></tbody>
+      </table>
+    </div>
+    <p class="sources">Sources : <a href="https://www.secondtalent.com/resources/most-in-demand-ai-engineering-skills-and-salary-ranges/" target="_blank" rel="noopener noreferrer">Second Talent — In-demand AI engineering skills 2026</a> · <a href="https://www.digitalapplied.com/blog/ai-developer-hiring-skills-that-matter-2026" target="_blank" rel="noopener noreferrer">Digital Applied — AI developer hiring 2026</a> · <a href="https://futurense.com/blog/ai-skills-in-demand" target="_blank" rel="noopener noreferrer">Futurense — AI skills in demand</a></p>
+  </div>
+</section>
+
+<section id="experience" aria-labelledby="titre-exp">
+  <div class="container">
+    <h2 id="titre-exp">Expérience professionnelle</h2>
+    <ol class="timeline">
+    <li class="timeline-item">
+      <h3>Senior Developer / IT Innovation Advisor — Allianz Trade (Paris)</h3>
+      <ul class="plain"><li>Assurance crédit : le domaine métier de mes projets de scoring (P6, P7, P15)</li><li>Veille et conseil en innovation IT au sein de l&#x27;entreprise</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Tech Lead / Senior Developer — Groupe Zannier S.A.</h3>
+      <ul class="plain"><li>Encadrement technique et développement logiciel dans le secteur retail</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Expert / Référent technique Java, JEE &amp; BI — Société Générale (projet ART)</h3>
+      <ul class="plain"><li>Expertise Java/JEE et Business Intelligence dans le secteur bancaire</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Formation ingénierie informatique — EPITA (2007-2009)</h3>
+      <ul class="plain"><li>Profil senior : une expérience d&#x27;ingénierie logicielle antérieure au parcours IA</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Certifications AWS (cloud)</h3>
+      <ul class="plain"><li>Cloud Practitioner, Enterprise Security, Cloud Architecture, Controlling Cost</li></ul>
+    </li>
+    <li class="timeline-item">
+      <h3>Pont expérience ↔ formation</h3>
+      <ul class="plain"><li>Mon projet personnel technique (P15) ferme la boucle MLOps d&#x27;un scoring crédit — le cœur de métier de mon employeur</li><li>Confidentialité respectée : aucun détail de projet interne n&#x27;est exposé</li></ul>
+    </li></ol>
+  </div>
+</section>
+
+<section id="reflexion" aria-labelledby="titre-reflexion">
+  <div class="container">
+    <h2 id="titre-reflexion">Le recul que la formation m'a donné</h2>
+    <ul class="reflections"><li>Ma perception du métier a évolué : je ne vois plus l&#x27;AI Engineer comme quelqu&#x27;un qui entraîne seulement des modèles, mais comme quelqu&#x27;un qui construit des systèmes fiables autour des modèles.</li><li>Les projets MLOps m&#x27;ont appris que la valeur d&#x27;un modèle dépend autant de sa surveillance, de son déploiement et de sa maintenabilité que de sa métrique initiale.</li><li>Avec du recul, je structurerais plus tôt les preuves, les captures et les décisions d&#x27;architecture pour réduire l&#x27;effort de documentation en fin de projet.</li><li>Je veux approfondir Kubernetes, le monitoring avancé, les architectures multi-agents et l&#x27;évaluation des LLM en conditions proches de la production.</li></ul>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:david.medragh@gmail.com">david.medragh@gmail.com</a> ·
+      <a href="https://www.linkedin.com/in/david-medragh-a339b615/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+      <a href="https://github.com/davidmedragh" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+      <a href="https://www.doyoubuzz.com/david-medragh" target="_blank" rel="noopener noreferrer">CV en ligne (DoYouBuzz)</a>
+    </p>
+    <p class="footer-note">Site statique généré par un script Python versionné — comme le reste de mon travail.
+      <a href="https://github.com/davidmedragh/projet15" target="_blank" rel="noopener noreferrer">Voir la source</a>.</p>
+    <p class="footer-copy">© 2026 David MEDRAGH — davidmedragh.com</p>
+  </div>
+</footer>
+</body>
+</html>
