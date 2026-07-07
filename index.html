@@ -31,6 +31,7 @@ a:focus-visible,.btn:focus-visible,.lang-btn:focus-visible{outline:3px solid var
 .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.28);color:#cdd9e8;
   border-radius:6px;padding:4px 11px;font-size:.82rem;font-weight:700;cursor:pointer;
   display:inline-flex;align-items:center;gap:6px;line-height:1.4}
+.lang-btn .flag{border-radius:2px;flex-shrink:0}
 .lang-btn:hover{border-color:var(--gold);color:var(--gold)}
 .lang-btn[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--navy)}
 
@@ -133,10 +134,10 @@ footer a{color:var(--gold)}
 <div class="langbar">
   <div class="container langbar-inner">
     <button type="button" id="lang-fr-btn" class="lang-btn" aria-pressed="true" onclick="setSiteLang('fr')">
-      <span aria-hidden="true">🇫🇷</span> FR
+      <svg class="flag" viewBox="0 0 3 2" width="20" height="14" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect width="1" height="2" x="1" fill="#fff"/><rect width="1" height="2" x="2" fill="#ed2939"/></svg> FR
     </button>
     <button type="button" id="lang-en-btn" class="lang-btn" aria-pressed="false" onclick="setSiteLang('en')">
-      <span aria-hidden="true">🇬🇧</span> EN
+      <svg class="flag" viewBox="0 0 60 30" width="20" height="10" aria-hidden="true"><clipPath id="gbclip"><rect width="60" height="30"/></clipPath><g clip-path="url(#gbclip)"><rect width="60" height="30" fill="#00247d"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#cf142b" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#cf142b" stroke-width="6"/></g></svg> EN
     </button>
   </div>
 </div>
@@ -635,7 +636,7 @@ footer a{color:var(--gold)}
     <p class="hero-pitch">Senior software engineer and <strong>full-stack AI engineer</strong>, I work across the entire information-system lifecycle: scoping, data engineering, ML/LLM models, APIs, <strong>MLOps</strong>, CI/CD, monitoring and continuous improvement, grounded in the <strong>trade credit insurance</strong> business.</p>
     <nav class="hero-links" aria-label="Liens principaux">
       <a class="btn btn-primary" href="#projet-phare-en">See the flagship project</a>
-      <a class="btn" href="carte-conceptuelle.html">Skills map (FR)</a>
+      <a class="btn" href="carte-conceptuelle-en.html">Skills map</a>
       <a class="btn" href="https://www.linkedin.com/in/david-medragh-a339b615/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a class="btn" href="https://github.com/davidmedragh" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a class="btn" href="mailto:david.medragh@gmail.com">Contact me</a>
